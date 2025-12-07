@@ -1,0 +1,740 @@
+.container {
+  min-height: 100vh;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile: page scrollable */
+@media (max-width: 1023px) {
+  .container {
+    height: auto;
+    overflow-y: auto;
+  }
+}
+
+/* Desktop: fixed height */
+@media (min-width: 1024px) {
+  .container {
+    height: 95vh;
+    overflow: hidden;
+  }
+}
+
+.main-title {
+  text-align: center;
+  color: white;
+  font-size: 44px;
+  margin: 8px 0 6px 0;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.main-subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 22px;
+  margin: 0 0 15px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.two-column-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Mobile: no overflow hidden, natural flow */
+@media (max-width: 1023px) {
+  .two-column-layout {
+    flex: none;
+    overflow: visible;
+  }
+}
+
+/* Desktop: fixed height with overflow */
+@media (min-width: 1024px) {
+  .two-column-layout {
+    flex: 1;
+    overflow: hidden;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile: natural height, no overflow */
+@media (max-width: 1023px) {
+  .card {
+    height: auto;
+    overflow: visible;
+    min-height: auto;
+  }
+}
+
+/* Desktop: fixed height with overflow */
+@media (min-width: 1024px) {
+  .card {
+    overflow: hidden;
+    min-height: 0;
+  }
+}
+
+.card-title {
+  margin: 0 0 18px 0;
+  font-size: 34px;
+  color: #333;
+  font-weight: 700;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.input-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile: natural height */
+@media (max-width: 1023px) {
+  .input-card {
+    height: auto;
+    min-height: auto;
+  }
+}
+
+/* Desktop: full height */
+@media (min-width: 1024px) {
+  .input-card {
+    flex: 1;
+    height: 100%;
+    min-height: 0;
+  }
+}
+
+.input-card form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.input-card button {
+  flex-shrink: 0;
+  z-index: 10;
+  padding: 20px 18px;
+}
+
+/* Mobile: normal button */
+@media (max-width: 1023px) {
+  .input-card button {
+    position: relative;
+    margin: 16px 0 0 0;
+    border-radius: 14px;
+    background: transparent;
+  }
+}
+
+/* Desktop: sticky button with gradient background */
+@media (min-width: 1024px) {
+  .input-card button {
+    position: sticky;
+    bottom: 0;
+    margin: 0 -18px -20px -18px;
+    border-radius: 0 0 16px 16px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(102,126,234,0.1) 20%, rgba(102,126,234,0.15) 100%);
+  }
+}
+
+.input-card button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 14px;
+  z-index: -1;
+  margin: 18px;
+}
+
+.result-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile: natural height, no scroll */
+@media (max-width: 1023px) {
+  .result-card {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+/* Desktop: full height with scroll */
+@media (min-width: 1024px) {
+  .result-card {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+.form-scroll {
+  padding-bottom: 10px;
+}
+
+/* Mobile: no scroll, natural flow */
+@media (max-width: 1023px) {
+  .form-scroll {
+    overflow: visible;
+    padding-right: 0;
+  }
+}
+
+/* Desktop: scrollable */
+@media (min-width: 1024px) {
+  .form-scroll {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 12px;
+    min-height: 0;
+  }
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 300px;
+  text-align: center;
+  color: #999;
+}
+
+.placeholder-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.placeholder h3 {
+  font-size: 34px;
+  color: #666;
+  margin: 0 0 16px 0;
+}
+
+.placeholder p {
+  font-size: 23px;
+  color: #999;
+  max-width: 400px;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.form-scroll::-webkit-scrollbar {
+  width: 12px;
+}
+
+.form-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.form-scroll::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 10px;
+}
+
+.form-scroll::-webkit-scrollbar-thumb:hover {
+  background: #764ba2;
+}
+
+/* Removed old h1 and subtitle - now using main-title and main-subtitle */
+
+.form-group {
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 12px;
+  color: #555;
+  font-weight: 600;
+  font-size: 26px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 20px 22px;
+  border: 2px solid #e0e0e0;
+  border-radius: 14px;
+  font-size: 28px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 12 12'%3E%3Cpath fill='%23667eea' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 48px;
+  cursor: pointer;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+button {
+  width: 100%;
+  padding: 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 26px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.4);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.result {
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Mobile: natural height, no scroll */
+@media (max-width: 1023px) {
+  .result {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+/* Desktop: full height with scroll */
+@media (min-width: 1024px) {
+  .result {
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+.result.safe {
+  background: #d4edda;
+  border: 3px solid #28a745;
+}
+
+.result.fraud {
+  background: #f8d7da;
+  border: 3px solid #dc3545;
+}
+
+.result.error {
+  background: #fff3cd;
+  border: 3px solid #ffc107;
+}
+
+.result h2 {
+  margin: 0 0 18px 0;
+  font-size: 40px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.result p {
+  margin: 0;
+  color: #333;
+  font-size: 27px;
+  line-height: 1.5;
+}
+
+.suggestions {
+  margin-top: 28px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 14px;
+  text-align: left;
+}
+
+.suggestions h3 {
+  margin: 0 0 20px 0;
+  font-size: 32px;
+  color: #333;
+  font-weight: 700;
+}
+
+.suggestions ul {
+  margin: 0;
+  padding-left: 32px;
+  list-style: none;
+}
+
+.suggestions li {
+  margin-bottom: 16px;
+  font-size: 23px;
+  line-height: 1.6;
+  color: #444;
+  position: relative;
+  padding-left: 12px;
+}
+
+.suggestions li:before {
+  content: "•";
+  position: absolute;
+  left: -20px;
+  color: #667eea;
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.disclaimer {
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(255, 193, 7, 0.15);
+  border: 2px solid #ffc107;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.disclaimer p {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.6;
+  color: #856404;
+}
+
+.disclaimer strong {
+  color: #856404;
+  font-weight: 700;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+  .suggestions {
+    padding: 28px;
+    margin-top: 32px;
+  }
+  
+  .suggestions h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  
+  .suggestions li {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+  
+  .disclaimer {
+    padding: 24px;
+    margin-top: 28px;
+  }
+  
+  .disclaimer p {
+    font-size: 17px;
+  }
+}
+
+/* Removed duplicate Desktop media query - consolidated above */
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+  .container {
+    padding: 18px;
+  }
+  
+  .card {
+    padding: 30px 25px;
+    border-radius: 18px;
+  }
+  
+  .main-title {
+    font-size: 46px;
+  }
+  
+  .main-subtitle {
+    font-size: 24px;
+  }
+  
+  .form-group {
+    margin-bottom: 24px;
+  }
+  
+  .form-group label {
+    margin-bottom: 12px;
+    font-size: 27px;
+  }
+  
+  input,
+  select {
+    padding: 20px 22px;
+    border-radius: 14px;
+    font-size: 25px;
+  }
+  
+  select {
+    padding-right: 50px;
+  }
+  
+  button {
+    padding: 22px;
+    border-radius: 14px;
+    font-size: 27px;
+  }
+  
+  .result {
+    padding: 32px;
+  }
+  
+  .result h2 {
+    font-size: 42px;
+  }
+  
+  .result p {
+    font-size: 28px;
+  }
+  
+  .suggestions h3 {
+    font-size: 34px;
+  }
+  
+  .suggestions li {
+    font-size: 24px;
+  }
+  
+  .disclaimer p {
+    font-size: 22px;
+  }
+}
+
+/* Desktop screens - Two Column Layout */
+@media (min-width: 1024px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .main-title {
+    font-size: 48px;
+    margin: 15px 0 10px 0;
+  }
+  
+  .main-subtitle {
+    font-size: 26px;
+    margin-bottom: 25px;
+  }
+  
+  .two-column-layout {
+    flex-direction: row;
+    gap: 20px;
+    height: 100%;
+  }
+  
+  .card {
+    padding: 35px 30px;
+    height: 100%;
+  }
+  
+  .card-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .input-card {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .result-card {
+    flex: 1;
+    min-width: 0;
+    overflow-y: auto;
+  }
+  
+  .form-scroll {
+    flex: 1;
+    overflow-y: auto;
+    max-height: none;
+  }
+  
+  .form-group label {
+    font-size: 28px;
+  }
+  
+  input,
+  select {
+    font-size: 26px;
+    padding: 20px 22px;
+  }
+  
+  button {
+    font-size: 28px;
+    padding: 22px;
+  }
+  
+  .result h2 {
+    font-size: 44px;
+  }
+  
+  .result p {
+    font-size: 28px;
+  }
+  
+  .placeholder-icon {
+    font-size: 90px;
+  }
+  
+  .placeholder h3 {
+    font-size: 38px;
+  }
+  
+  .placeholder p {
+    font-size: 24px;
+    max-width: 450px;
+  }
+  
+  .suggestions h3 {
+    font-size: 36px;
+  }
+  
+  .suggestions li {
+    font-size: 25px;
+  }
+  
+  .disclaimer p {
+    font-size: 23px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1440px) {
+  .main-title {
+    font-size: 48px;
+  }
+  
+  .main-subtitle {
+    font-size: 24px;
+  }
+  
+  .card {
+    padding: 40px 35px;
+  }
+  
+  .card-title {
+    font-size: 28px;
+  }
+  
+  .form-group label {
+    font-size: 20px;
+  }
+  
+  input,
+  select {
+    font-size: 21px;
+    padding: 18px 20px;
+  }
+  
+  button {
+    font-size: 23px;
+    padding: 20px;
+  }
+  
+  .result h2 {
+    font-size: 34px;
+  }
+  
+  .result p {
+    font-size: 21px;
+  }
+}
+
+/* Prevent zoom on input focus on iOS */
+@media screen and (max-width: 767px) {
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improve touch targets on mobile */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 48px;
+  }
+}
